@@ -1,6 +1,7 @@
 <component name="libraryTable">
   <library name="GOPATH &lt;HttpFileServer&gt;">
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/../bitbucket.org" />
       <root url="file://$PROJECT_DIR$/../pyramid" />
       <root url="file://$PROJECT_DIR$/../MongerServer" />
       <root url="file://$PROJECT_DIR$/../.idea" />
