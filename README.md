@@ -2,7 +2,7 @@
 
 ## Installation
 ```bash
-go get github.com/Kisulken/fileserver
+go get github.com/kisulken/fileserver
 ```
 
 Simple file server that shares access to a directory on a selected port
