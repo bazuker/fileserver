@@ -1,5 +1,5 @@
 # Go fileserver
-Simple file server that shares access to a directory on a selected port
+Simple file server that shares access to a directory over HTTP on a selected port
 
 ## Installation
 Build from the source
