@@ -1,4 +1,5 @@
-# Simple file server written in Golang
+# Go fileserver
+Simple file server that shares access to a directory on a selected port
 
 ## Installation
 Build from the source
@@ -7,8 +8,6 @@ $ go get -u github.com/kardianos/osext
 $ go get -u github.com/kisulken/fileserver
 ```
 Or check out the [pre-built binaries](https://github.com/kisulken/fileserver/releases)
-
-Simple file server that shares access to a directory on a selected port
 
 ## CLI Usage
 
