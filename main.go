@@ -1,50 +1,51 @@
 package main
 
 import (
-	"net/http"
+	"flag"
 	"fmt"
-	"strconv"
+	"net/http"
 	"os"
-	"github.com/kardianos/osext"
+	"strconv"
+)
+
+var (
+	port = flag.Int("port", 1234, "port to use")
+	// By default, the current directory will be used
+	wd = flag.String("dir", "", "directory to serve")
 )
 
 func main() {
+	flag.Parse()
+
 	// setting the default settings
-	port := "1234"
-	wd, _ := osext.ExecutableFolder()
-	customSettings := false
-
-	// checking for custom settings
-	if len(os.Args) > 1 {
-		customSettings = true
-
-		port = os.Args[1]
-
-		if len(os.Args) > 2 {
-			wd = os.Args[2]
+	if wd == nil || *wd == "" {
+		detectedWD, err := os.Getwd()
+		if err != nil {
+			fmt.Println("failed to determine working directory:", err)
+			return
 		}
+		wd = &detectedWD
+	}
+	if port == nil || *port == 0 {
+		fmt.Printf("Invalid port provided")
+		return
 	}
 
-	// validating the settings
-	if customSettings {
-		if _, err := strconv.Atoi(port); err != nil {
-			fmt.Println("Invalid port!")
-			os.Exit(1)
-		}
-		if _, err := os.Stat(wd); os.IsNotExist(err) {
-			fmt.Println("Invalid working directory!")
-			os.Exit(2)
-		}
+	if _, err := os.Stat(*wd); os.IsNotExist(err) {
+		fmt.Println("Invalid working directory", *wd)
+		os.Exit(2)
 	}
 
-	fmt.Println("Port is " + port)
-	fmt.Println("Working directory is " + wd)
+	fmt.Println("Using port", *port)
+	fmt.Println("Using directory", *wd)
 
 	// setting up the file server
-	fs := http.FileServer(http.Dir(wd))
+	fs := http.FileServer(http.Dir(*wd))
 	http.Handle("/", fs)
 
 	// running the file server
 	fmt.Println("Serving the files...")
-	http.ListenAndServe(":" + port, nil)
+	if err := http.ListenAndServe(":"+strconv.Itoa(*port), nil); err != nil {
+		fmt.Println("Error:", err)
+	}
 }
