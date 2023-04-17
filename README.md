@@ -8,7 +8,7 @@ By default, the current working directory is hosted on port `8080` if no flags w
 ## Installation
 Build from the source
 ```bash
-$ go get -u github.com/bazuker/fileserver
+$ go install github.com/bazuker/fileserver
 ```
 Or check out the [pre-built binaries](https://github.com/bazuker/fileserver/releases)
 
