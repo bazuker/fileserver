@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	port = flag.Int("port", 1234, "port to use")
+	port = flag.Int("port", 8080, "port to use")
 	// By default, the current directory will be used
 	wd = flag.String("dir", "", "directory to serve")
 )

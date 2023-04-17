@@ -2,7 +2,8 @@
 
 # Go fileserver
 Simple file server that shares access to a directory over HTTP using a selected port.
-By default, the current working directory is shared if `-dir` is not specified.
+
+By default, the current working directory is hosted on port `8080` if no flags were specified.
 
 ## Installation
 Build from the source
