@@ -1,4 +1,4 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/kisulken/fileserver)](https://goreportcard.com/report/github.com/kisulken/fileserver)
+[![Go Report Card](https://goreportcard.com/badge/github.com/bazuker/fileserver)](https://goreportcard.com/report/github.com/bazuker/fileserver)
 
 # Go fileserver
 Simple file server that shares access to a directory over HTTP using a selected port.
