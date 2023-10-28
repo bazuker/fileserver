@@ -8,14 +8,14 @@ By default, the current working directory is hosted on port `8080` if no flags w
 ## Installation
 Build from the source
 ```bash
-$ go install github.com/bazuker/fileserver
+go install github.com/bazuker/fileserver@latest
 ```
 Or check out the [pre-built binaries](https://github.com/bazuker/fileserver/releases)
 
 ## CLI Usage
 
 ```bash
-$ fileserver -port=5555 -dir="/users/username/documents/public"
+fileserver -port=5555 -dir="/users/username/documents/public"
 ```
 
 This command will host the directory `/users/username/documents/public` on the port 5555.
